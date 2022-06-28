@@ -1,0 +1,39 @@
+/* Author: Stanley Lin */
+
+
+/* global styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+}
+
+body {
+    font: 16px/200% "Overpass", "Open Sans", Helvetica, sans-serif;
+    color: #333;
+    font-weight: 400;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+header, footer {
+    margin: 3em 0;
+    text-align: center;
+}
+
+.solution {
+    padding: 3em 0;
+    border-top: 1px solid #ccc;
+}
+
+.solution:nth-last-of-type(1) {
+    border-bottom: 1px solid #ccc;
+}
+
+.solution-content {
+    margin-top: 1em;
+}

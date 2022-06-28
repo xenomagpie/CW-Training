@@ -1,0 +1,123 @@
+/* Author: Stanley Lin */
+
+
+/* Solution for P1 */
+.info-table {
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 80%;
+    margin: 0 auto;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.info-table tr {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+}
+
+.info-table th,
+.info-table td {
+    padding: .6em;
+    text-align: center;
+}
+
+.info-table th {
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.info-table td {
+    font-weight: 400;
+}
+
+.info-table:hover {
+    cursor: pointer;
+}
+
+/* .info-table tr:not(:first-child):hover {
+    background-color: #eee;
+    border: 1px solid #eee;
+} */
+/* for IE < 9 */
+.info-table tr:hover {
+    background-color: #eee;
+    border: 1px solid #eee;
+    font-weight: 700;
+}
+
+tr:first-child:hover {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+}
+
+
+/* Solution for P2 */
+.google-input-wrapper {
+    position: relative;
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 1em;
+}
+
+.google-input {
+    display: block;
+    width: 500px;
+    border: 1px solid #E1E1E1;
+    border-radius: 30px;
+    overflow: hidden;
+    padding: 10px;
+    padding-left: 35px;
+    font-size: 1em;
+}
+
+.google-input:focus {
+    outline: none;
+    border: 1px solid #B1B1B1;
+}
+
+.material-symbols-rounded {
+    color: #9CA0A4;
+    font-weight: 400;
+}
+
+span#search-icon {
+    position: absolute;
+    left: 15px;
+    /* Vertically center the icon in the input */
+    top: calc(50% - 0.5em);
+    font-size: 1em;
+}
+
+span#mic-icon {
+    position: absolute;
+    right: 15px;
+    top: calc(50% - 0.5em);
+    font-size: 1.2em;
+}
+
+
+/* Solution for P3 */
+ol, ul {
+    list-style-position: inside;
+    /* margin: 0.5em; */
+}
+
+ol {
+    margin-bottom: 1em;
+}
+
+li {
+    margin-left: 1.5em;
+    line-height: 1.2em;
+}
+
+li:first-child {
+    margin-top: 0.8em;
+}
+
+
+/* Solution for P4 */
