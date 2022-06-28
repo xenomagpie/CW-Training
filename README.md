@@ -1,5 +1,5 @@
 # Chuwa Full Stack Training
 
-| Task         | Source File                                  |
-| ------------ | -------------------------------------------- |
-| Assignment 1 | [html](/hw/hw1/stanley_lin_assignment1.html) |
+| Task                                                 | Preview                                                                                                                        |
+| ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| [Assignment 1](/hw/hw1/stanley_lin_assignment1.html) | [Link](https://htmlpreview.github.io/?https://github.com/xenomagpie/CW-Training/blob/main/hw/hw1/stanley_lin_assignment1.html) |
