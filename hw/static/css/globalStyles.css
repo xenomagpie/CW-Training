@@ -16,24 +16,73 @@ body {
     font: 16px/200% "Overpass", "Open Sans", Helvetica, sans-serif;
     color: #333;
     font-weight: 400;
-    max-width: 90%;
+    max-width: 80%;
     margin: 0 auto;
+    /* padding-top: 10vh; */
 }
 
 header, footer {
-    margin: 3em 0;
+    margin: 5vh 0;
     text-align: center;
 }
 
-.solution {
+.solution-content {
+    margin-top: 2em;
+}
+
+/* tabs related */
+.solutions {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.solutions label {
+    order: 1;
+    display: block;
+    padding: 1rem 2rem;
+    margin-right: 0.2rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background ease 0.2s;
+}
+
+.solutions .solution {
+    order: 99;
+    flex-grow: 1;
+    width: 100%;
+    display: none;
+    background: #fff;
     padding: 3em 0;
+}
+
+.solutions input[type="radio"] {
+    display: none;
+}
+
+.solutions input[type="radio"]:checked+label {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-bottom: 1px solid transparent;
+    margin-bottom: -1px;
+    z-index: 1;
+}
+
+.solutions input[type="radio"]:checked+label+.solution,
+.solutions input[type="radio"]:first-child:checked~label+.solution {
+    display: block;
     border-top: 1px solid #ccc;
 }
 
-.solution:nth-last-of-type(1) {
-    border-bottom: 1px solid #ccc;
-}
+@media (max-width: 45em) {
 
-.solution-content {
-    margin-top: 1em;
+    .solutions .solution,
+    .solutions label {
+        order: initial;
+    }
+
+    .solutions label {
+        width: 100%;
+        margin-right: 0;
+        margin-top: 0.2rem;
+    }
 }
