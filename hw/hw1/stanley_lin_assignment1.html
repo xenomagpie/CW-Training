@@ -20,52 +20,57 @@
     <link rel="stylesheet" href="static/css/styles.css" />
   </head>
   <body>
-    <!-- <header>
+    <header>
       <h1>Assignment 1</h1>
-    </header> -->
-    <header></header>
+    </header>
     <div class="solutions">
       <input type="radio" name="solution-tab" id="solution-tab-all" checked />
       <label for="solution-tab-all">All</label>
+
       <input type="radio" name="solution-tab" id="solution-tab-one" />
       <label for="solution-tab-one">P1</label>
       <section class="solution">
         <h2>P1. Table with styles you want to add</h2>
         <div class="solution-content">
           <table class="info-table">
-            <tr>
-              <th>Student Name</th>
-              <th>Age</th>
-              <th>Phone #</th>
-              <th>Address</th>
-            </tr>
-            <tr>
-              <td>John</td>
-              <td>19</td>
-              <td>455-983-0903</td>
-              <td>123 Ave, San Francisco, CA, 94011</td>
-            </tr>
-            <tr>
-              <td>Alex</td>
-              <td>21</td>
-              <td>455-983-0912</td>
-              <td>456 Rd, San Francisco, CA, 94012</td>
-            </tr>
-            <tr>
-              <td>Josh</td>
-              <td>22</td>
-              <td>455-345-0912</td>
-              <td>789 Dr, Newark, CA, 94016</td>
-            </tr>
-            <tr>
-              <td>Matt</td>
-              <td>23</td>
-              <td>321-345-0912</td>
-              <td>223 Dr, Sunnyvale, CA, 94016</td>
-            </tr>
+            <thead>
+              <tr>
+                <th>Student Name</th>
+                <th>Age</th>
+                <th>Phone #</th>
+                <th>Address</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>John</td>
+                <td>19</td>
+                <td>455-983-0903</td>
+                <td>123 Ave, San Francisco, CA, 94011</td>
+              </tr>
+              <tr>
+                <td>Alex</td>
+                <td>21</td>
+                <td>455-983-0912</td>
+                <td>456 Rd, San Francisco, CA, 94012</td>
+              </tr>
+              <tr>
+                <td>Josh</td>
+                <td>22</td>
+                <td>455-345-0912</td>
+                <td>789 Dr, Newark, CA, 94016</td>
+              </tr>
+              <tr>
+                <td>Matt</td>
+                <td>23</td>
+                <td>321-345-0912</td>
+                <td>223 Dr, Sunnyvale, CA, 94016</td>
+              </tr>
+            </tbody>
           </table>
         </div>
       </section>
+
       <input type="radio" name="solution-tab" id="solution-tab-two" />
       <label for="solution-tab-two">P2</label>
       <section class="solution">
@@ -78,12 +83,11 @@
             placeholder="Search"
             maxlength="500"
           />
-          <span id="search-icon" class="material-symbols-rounded">
-            search
-          </span>
-          <span id="mic-icon" class="material-symbols-rounded"> mic </span>
+          <span id="search-icon" class="material-symbols-rounded">search</span>
+          <span id="mic-icon" class="material-symbols-rounded">mic</span>
         </div>
       </section>
+
       <input type="radio" name="solution-tab" id="solution-tab-three" />
       <label for="solution-tab-three">P3</label>
       <section class="solution">
@@ -109,6 +113,7 @@
           </ul>
         </div>
       </section>
+
       <input type="radio" name="solution-tab" id="solution-tab-four" />
       <label for="solution-tab-four">P4</label>
       <section class="solution">
@@ -116,11 +121,11 @@
         <div class="solution-content">
           <select name="city" id="city">
             <option value="Newark" selected>Newark</option>
-            <option value="SantaClara">Santa Clara</option>
-            <option value="UnionCity">Union City</option>
+            <option value="Santa Clara">Santa Clara</option>
+            <option value="Union City">Union City</option>
             <option value="Albany">Albany</option>
-            <option value="DalyCity">Daly City</option>
-            <option value="SanJose">San Jose</option>
+            <option value="Daly City">Daly City</option>
+            <option value="San Jose">San Jose</option>
           </select>
         </div>
       </section>
