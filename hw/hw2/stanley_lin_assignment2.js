@@ -137,6 +137,7 @@ const merge2 = (arr1, arr2) => {
 
 // P3 Solution 3 - Using Object.assign
 // Time Complexity: O(n^2)
+// Space Complexity: O(n)
 const merge3 = (arr1, arr2) => {
   const mergedArr = [...new Set([...arr1.map(f), ...arr2.map(f)])].map(uuid => ({ uuid, name: null, role: null }))
 
