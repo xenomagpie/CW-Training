@@ -58,16 +58,18 @@ const string = ' Perhaps The Easiest-to-understand Case For Reduce Is To Return 
 // P2 Solution 1 - Regular Expression
 const parse1 = str => (str.trim().replace(/  +/g, ' ').replace(/[^a-zA-Z\s]/g, '').toLowerCase())
 
-// P2 Solution 2 - Iteration with ASCII Code
+// P2 Solution 2 - Iteration by Word
 const parse2 = str => {
   const wordArr = str.trim().split(' ') // consecutive(extra) spaces will be kept as empty strings
-  const result = []
+  const parsedWordArr = []
 
   for (const word of wordArr) {
-    if (word.length !== 0) { result.push(parseCharArr([...word])) }
+    if (word.length !== 0) {
+      parsedWordArr.push(parseCharArr([...word]))
+    }
   }
 
-  return result.join(' ')
+  return parsedWordArr.join(' ')
 }
 
 // filter out all non-alphabet characters from a character array and return the parsed and lowercased string
@@ -93,6 +95,22 @@ const isAlphabet = c => {
   return false
 }
 
+// P2 Solution 3 - Iteration by Character
+const parse3 = str => {
+  str = str.trim()
+  const charArr = []
+
+  for (const c of str) {
+    if (isAlphabet(c)) {
+      charArr.push(c.toLowerCase())
+    } else if (c === ' ' && charArr.size !== 0 && charArr[charArr.length - 1] !== ' ') {
+      charArr.push(' ')
+    }
+  }
+
+  return charArr.join('')
+}
+
 /*
   P3: Implement a function to merge two arrays of objects on uuid, but first has uuid and name, second has uuid and role.
   With the not existing property, fill with null.
@@ -109,7 +127,7 @@ const merge1 = (arr1, arr2) => {
 
   [...arr1, ...arr2].forEach(obj => { // or arr1.concat(arr2);
     record[obj.uuid] = {
-      name: (record[obj.uuid] && record[obj.uuid].name) || obj.name || null,
+      name: (record[obj.uuid] && record[obj.uuid].name) || obj.name || null, // use optional chaining ?. when Node.js version >= 14
       role: (record[obj.uuid] && record[obj.uuid].role) || obj.role || null
     }
   })
@@ -127,7 +145,7 @@ const merge2 = (arr1, arr2) => {
 
   [...arr1, ...arr2].forEach(obj => {
     record.set(obj.uuid, {
-      name: (record.has(obj.uuid) && record.get(obj.uuid).name) || obj.name || null,
+      name: (record.has(obj.uuid) && record.get(obj.uuid).name) || obj.name || null, // use optional chaining ?. when Node.js version >= 14
       role: (record.has(obj.uuid) && record.get(obj.uuid).role) || obj.role || null
     })
   })
@@ -195,6 +213,10 @@ const Printer = (oldArr, func) => {
   console.log("P2 Solution 2's Result: ")
   console.log('Old string: ', string)
   console.log('New string: ', parse2(string))
+  console.log()
+  console.log("P2 Solution 3's Result: ")
+  console.log('Old string: ', string)
+  console.log('New string: ', parse3(string))
   console.log()
 
   console.log()
