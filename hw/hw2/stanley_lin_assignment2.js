@@ -17,7 +17,7 @@ const double1 = arr => {
 }
 
 // P1.2 Solution 2 - With Higher-order Function: map
-const double2 = arr => arr.map(obj => ({ quantity: obj.quantity * 2, price: obj.price * 2 }))
+const double2 = arr => arr.map(({ quantity, price }) => ({ quantity: quantity * 2, price: price * 2 }))
 
 // P1.2: Given the array, implement a function for generating a new array which contains item quantity > 2 and price > 300 only.
 // P1.2 Solution 1 - Without Higher-order Function
@@ -25,14 +25,16 @@ const filter1 = arr => {
   const result = []
 
   for (const obj of arr) {
-    if (obj.quantity > 2 && obj.price > 300) { result.push(obj) }
+    if (obj.quantity > 2 && obj.price > 300) {
+      result.push(obj)
+    }
   }
 
   return result
 }
 
 // P1.2 Solution 2 - With Higher-order Function: filter
-const filter2 = arr => arr.filter(obj => (obj.quantity > 2 && obj.price > 300))
+const filter2 = arr => arr.filter(({ quantity, price }) => (quantity > 2 && price > 300))
 
 // P1.3: Given the array, implement a function to calculate the total value of the items.
 // P1.3 Solution 1 - Without Higher-order Function
@@ -56,7 +58,8 @@ const calculateValue2 = arr => arr.reduce((prev, cur) => {
 const string = ' Perhaps The Easiest-to-understand Case For Reduce Is To Return The Sum Of  All The Elements In  An Array  '
 
 // P2 Solution 1 - Regular Expression
-const parse1 = str => (str.trim().replace(/  +/g, ' ').replace(/[^a-zA-Z\s]/g, '').toLowerCase())
+// const parse1 = str => (str.trim().replace(/  +/g, ' ').replace(/[^a-zA-Z\s]/g, '').toLowerCase())
+const parse1 = str => (str.replace(/[^a-zA-Z]+/g, ' ').trim().toLocaleLowerCase())
 
 // P2 Solution 2 - Iteration by Word
 const parse2 = str => {
@@ -126,15 +129,18 @@ const merge1 = (arr1, arr2) => {
   const record = {};
 
   [...arr1, ...arr2].forEach(obj => { // or arr1.concat(arr2);
-    record[obj.uuid] = {
-      name: (record[obj.uuid] && record[obj.uuid].name) || obj.name || null, // use optional chaining ?. when Node.js version >= 14
-      role: (record[obj.uuid] && record[obj.uuid].role) || obj.role || null
+    if (!record[obj.uuid]) {
+      record[obj.uuid] = {
+        uuid: obj.uuid,
+        name: obj.name || null, // use optional chaining ?. when Node.js version >= 14
+        role: obj.role || null
+      }
+    } else {
+      record[obj.uuid] = { ...record[obj.uuid], ...obj }
     }
   })
 
-  return Object.keys(record)
-    .map(uuid => ({ uuid: parseInt(uuid), ...record[uuid] }))
-    .sort((a, b) => (a.uuid - b.uuid))
+  return Object.values(record).sort((a, b) => (a.uuid - b.uuid))
 }
 
 // P3 Solution 2 - Using Map
@@ -144,13 +150,18 @@ const merge2 = (arr1, arr2) => {
   const record = new Map();
 
   [...arr1, ...arr2].forEach(obj => {
-    record.set(obj.uuid, {
-      name: (record.has(obj.uuid) && record.get(obj.uuid).name) || obj.name || null, // use optional chaining ?. when Node.js version >= 14
-      role: (record.has(obj.uuid) && record.get(obj.uuid).role) || obj.role || null
-    })
+    if (!record.has(obj.uuid)) {
+      record.set(obj.uuid, {
+        uuid: obj.uuid,
+        name: obj.name || null,
+        role: obj.role || null
+      })
+    } else {
+      record.set(obj.uuid, { ...record.get(obj.uuid), ...obj })
+    }
   })
 
-  return Array.from(record, ([uuid, props]) => ({ uuid, ...props })).sort((a, b) => a.uuid - b.uuid)
+  return Array.from(record, ([, props]) => ({ ...props })).sort((a, b) => a.uuid - b.uuid)
 }
 
 // P3 Solution 3 - Using Object.assign
@@ -204,6 +215,8 @@ const Printer = (oldArr, func) => {
   console.log('Total value: ', calculateValue2(itemsObject))
   console.log()
 
+  console.log('***************************************************')
+
   console.log()
   console.log('P2: ')
   console.log("P2 Solution 1's Result: ")
@@ -218,6 +231,8 @@ const Printer = (oldArr, func) => {
   console.log('Old string: ', string)
   console.log('New string: ', parse3(string))
   console.log()
+
+  console.log('***************************************************')
 
   console.log()
   console.log('P3: ')
