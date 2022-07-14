@@ -81,16 +81,23 @@ const parseCharArr = arr => {
 }
 
 const isAlphabet = c => {
-  const CHAR_CODE_A = 65 // or "A".charCodeAt(0)
-  const CHAR_CODE_Z = 90 // or "Z".charCodeAt(0)
-  const CHAR_CODE_AS = 97 // or "a".charCodeAt(0)
-  const CHAR_CODE_ZS = 122 // or "z".charCodeAt(0)
+  // const CHAR_CODE_A = 65 // or "A".charCodeAt(0)
+  // const CHAR_CODE_Z = 90 // or "Z".charCodeAt(0)
+  // const CHAR_CODE_AS = 97 // or "a".charCodeAt(0)
+  // const CHAR_CODE_ZS = 122 // or "z".charCodeAt(0)
 
-  const code = c.charCodeAt(0)
+  // const code = c.charCodeAt(0)
+
+  // if (
+  //   (code >= CHAR_CODE_A && code <= CHAR_CODE_Z) ||
+  //   (code >= CHAR_CODE_AS && code <= CHAR_CODE_ZS)
+  // ) {
+  //   return true
+  // }
 
   if (
-    (code >= CHAR_CODE_A && code <= CHAR_CODE_Z) ||
-    (code >= CHAR_CODE_AS && code <= CHAR_CODE_ZS)
+    (c >= 'A' && c <= 'Z') ||
+    (c >= 'a' && c <= 'z')
   ) {
     return true
   }
