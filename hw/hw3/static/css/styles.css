@@ -1,0 +1,68 @@
+/* Author: Stanley Lin */
+/* Styling for P1 */
+.info-table {
+    width: 80%;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+    table-layout: fixed;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.info-table tr {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+}
+
+.info-table th,
+.info-table td {
+    padding: .6em;
+    text-align: center;
+}
+
+.info-table th {
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.info-table td {
+    font-weight: 400;
+}
+
+.info-table:hover {
+    cursor: pointer;
+}
+
+/* .info-table tr:not(:first-child):hover {
+    background-color: #eee;
+    border: 1px solid #eee;
+} */
+/* for IE < 9 */
+tbody tr:hover {
+    background-color: #eee;
+    border: 1px solid #eee;
+    font-weight: 700;
+}
+
+
+/* Styling for P2 */
+ol, ul {
+    list-style-position: inside;
+    /* margin: 0.5em; */
+}
+
+ol {
+    margin-bottom: 1em;
+}
+
+li {
+    margin-left: 1.5em;
+    line-height: 1.2em;
+}
+
+li:first-child {
+    margin-top: 0.8em;
+}
