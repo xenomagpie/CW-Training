@@ -89,11 +89,11 @@ const createTbody = tableContent => {
   tableContent.forEach((student) => { // or object destructuring: { 'Student Name': name, Age: age, Phone: phone, Address: address }
     const tr = document.createElement('tr')
 
-    for (const prop in student) {
+    Object.keys(student).forEach(key => {
       const td = document.createElement('td')
-      td.textContent = student[prop]
+      td.textContent = student[key]
       tr.appendChild(td)
-    }
+    })
 
     tbody.appendChild(tr)
   })
