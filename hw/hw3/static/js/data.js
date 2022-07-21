@@ -40,6 +40,7 @@ const dropDownList = [
   { value: 'dalyCity', content: 'Daly City' },
   { value: 'sanJose', content: 'San Jose' }
 ]
+
 // data variable name "xx" -> data class name "xx-wrapper"
 const dataName2ClassName = new Map([
   ['tableInfo', 'table-info-wrapper'],
@@ -72,12 +73,14 @@ const createThead = tableHeader => {
   const thead = document.createElement('thead')
   const tr = document.createElement('tr')
 
-  tableHeader.forEach(header => {
+  const ths = tableHeader.map(header => {
     const th = document.createElement('th')
     th.textContent = header
-    tr.appendChild(th)
+
+    return th
   })
 
+  tr.append(...ths)
   thead.appendChild(tr)
 
   return thead
@@ -86,17 +89,22 @@ const createThead = tableHeader => {
 const createTbody = tableContent => {
   const tbody = document.createElement('tbody')
 
-  tableContent.forEach((student) => { // or object destructuring: { 'Student Name': name, Age: age, Phone: phone, Address: address }
+  const trs = tableContent.map((student) => { // or object destructuring: { 'Student Name': name, Age: age, Phone: phone, Address: address }
     const tr = document.createElement('tr')
 
-    Object.keys(student).forEach(key => {
+    const tds = Object.keys(student).map(key => {
       const td = document.createElement('td')
       td.textContent = student[key]
-      tr.appendChild(td)
+
+      return td
     })
 
-    tbody.appendChild(tr)
+    tr.append(...tds)
+
+    return tr
   })
+
+  tbody.append(...trs)
 
   return tbody
 }
@@ -106,12 +114,9 @@ const p1 = ((dataName = 'tableInfo') => {
   const table = document.createElement('table')
   table.className = 'info-table' // for styling
 
-  table.appendChild(createThead(tableInfo.tableHeader))
-  table.appendChild(createTbody(tableInfo.tableContent))
+  table.append(createThead(tableInfo.tableHeader), createTbody(tableInfo.tableContent))
 
-  const nodes = [table]
-
-  addNodes(dataName, nodes)
+  addNodes(dataName, [table])
 })()
 
 // P2
@@ -126,16 +131,17 @@ const p2 = ((dataName = 'list') => {
   const ol = document.createElement('ol')
   const ul = document.createElement('ul')
 
-  list.forEach(lang => {
+  const lis = list.map(lang => {
     const li = document.createElement('li')
     li.textContent = lang
-    ol.appendChild(li.cloneNode(true))
-    ul.appendChild(li)
+
+    return li
   })
 
-  const nodes = [spanOL, ol, spanUL, ul]
+  ol.append(...lis.map(li => li.cloneNode(true)))
+  ul.append(...lis)
 
-  addNodes(dataName, nodes)
+  addNodes(dataName, [spanOL, ol, spanUL, ul])
 })()
 
 // P3
@@ -144,14 +150,15 @@ const p3 = ((dataName = 'dropDownList') => {
   const select = document.createElement('select')
   select.name = 'city'
 
-  dropDownList.forEach(({ value, content }) => {
+  const options = dropDownList.map(({ value, content }) => {
     const option = document.createElement('option')
     option.value = value
     option.textContent = content // text
-    select.appendChild(option)
+
+    return option
   })
 
-  const nodes = [select]
+  select.append(...options)
 
-  addNodes(dataName, nodes)
+  addNodes(dataName, [select])
 })()
