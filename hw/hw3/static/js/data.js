@@ -73,14 +73,14 @@ const createThead = tableHeader => {
   const thead = document.createElement('thead');
   const tr = document.createElement('tr');
 
-  const ths = tableHeader.map(header => {
+  const thArr = tableHeader.map(header => {
     const th = document.createElement('th');
     th.textContent = header;
 
     return th;
   });
 
-  tr.append(...ths);
+  tr.append(...thArr);
   thead.appendChild(tr);
 
   return thead;
@@ -89,22 +89,22 @@ const createThead = tableHeader => {
 const createTbody = tableContent => {
   const tbody = document.createElement('tbody');
 
-  const trs = tableContent.map((student) => { // or object destructuring: { 'Student Name': name, Age: age, Phone: phone, Address: address }
+  const trArr = tableContent.map((student) => { // or object destructuring: { 'Student Name': name, Age: age, Phone: phone, Address: address }
     const tr = document.createElement('tr');
 
-    const tds = Object.keys(student).map(key => {
+    const tdArr = Object.keys(student).map(key => {
       const td = document.createElement('td');
       td.textContent = student[key];
 
       return td;
     });
 
-    tr.append(...tds);
+    tr.append(...tdArr);
 
     return tr;
   });
 
-  tbody.append(...trs);
+  tbody.append(...trArr);
 
   return tbody;
 };
@@ -123,14 +123,14 @@ const p1 = ((dataName = 'tableInfo') => {
 const createListEle = ele => {
   const listNode = document.createElement(ele);
 
-  const lis = list.map(lang => {
+  const liArr = list.map(ele => {
     const li = document.createElement('li');
-    li.textContent = lang;
+    li.textContent = ele;
 
     return li;
   });
 
-  listNode.append(...lis);
+  listNode.append(...liArr);
 
   return listNode;
 };
@@ -154,7 +154,7 @@ const p3 = ((dataName = 'dropDownList') => {
   const select = document.createElement('select');
   select.name = 'city';
 
-  const options = dropDownList.map(({ value, content }) => {
+  const optionArr = dropDownList.map(({ value, content }) => {
     const option = document.createElement('option');
     option.value = value;
     option.textContent = content; // text
@@ -162,7 +162,7 @@ const p3 = ((dataName = 'dropDownList') => {
     return option;
   });
 
-  select.append(...options);
+  select.append(...optionArr);
 
   addNodes(dataName, [select]);
 })();
