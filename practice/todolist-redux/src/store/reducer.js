@@ -2,7 +2,7 @@
 const defaultState = {
     inputValue: 'Hello Chuwa',
     list: []
-}
+};
 
 export default (state = defaultState, action) => {
 
@@ -26,4 +26,4 @@ export default (state = defaultState, action) => {
     }
 
     return state;
-}
+};
