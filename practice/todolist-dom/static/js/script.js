@@ -36,10 +36,10 @@ const createAddTodoItemButton = () => {
 const createTodoItemLi = (item) => {
     const li = document.createElement("li");
     li.textContent = item;
-    li.ondblclick = (e => handleTdooItemComplete(e.currentTarget));
+    li.ondblclick = (e => handleTdooItemComplete(e.target));
     const removeButton = document.createElement("button");
     removeButton.textContent = "Remove";
-    removeButton.onclick = (e => handleRemoveButtonClicked(e.currentTarget.parentElement));
+    removeButton.onclick = (e => handleRemoveButtonClicked(e.target.parentElement));
     li.appendChild(removeButton);
     return li;
 };
