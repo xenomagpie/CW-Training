@@ -16,7 +16,7 @@ const handleTdooItemComplete = (TodoItemLi) => {
     if (!TodoItemLi.classList.contains("completed"))
         TodoItemLi.classList.add("completed");
     else
-        TodoItemLi.classList.remove(("completed"));
+        TodoItemLi.classList.remove("completed");
 };
 
 const createInput = () => {
